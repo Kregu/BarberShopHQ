@@ -13,7 +13,7 @@
 
 <form action="/visit" method="POST">
 
-  <div class="form-group">
+<!--   <div class="form-group">
     <label>Select barber</label>
     <select name="barber" class="form-control">
 
@@ -22,26 +22,26 @@
     <% end %>
 
     </select>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label>Your name</label>
-    <input name="client_name" type="text" class="form-control" placeholder="Enter your name" value="<%=@client_name%>">
+    <input name="client[name]" type="text" class="form-control" placeholder="Enter your name" value="">
   </div>
 
     <div class="form-group">
     <label>Your phone</label>
-    <input name="client_phone" type="text" class="form-control" placeholder="Enter your phone" value="<%=@client_phone%>">
+    <input name="client[phone]" type="text" class="form-control" placeholder="Enter your phone" value="">
   </div>
 
   <div class="form-group">
     <label>Date and Time</label>
-    <input id="datetimepicker" name="date_time" type="text" class="form-control" placeholder="Enter desired time" value="<%=@date_time%>">
+    <input id="datetimepicker" name="client[datestamp]" type="text" class="form-control" placeholder="Enter desired time" value="">
   </div>
 
   <div class="form-group">
     <label>Select color to paint your hair:</label>
-    <select id="color" name="color">
+    <select id="color" name="client[color]">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>
