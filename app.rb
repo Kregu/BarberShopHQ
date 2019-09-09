@@ -7,15 +7,47 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:barbershop.db"
 
 class Client < ActiveRecord::Base
-	include ActiveRecord::Persistence
+	# include ActiveRecord::Persistence
 end
 
 class Barber < ActiveRecord::Base
-	include ActiveRecord::Persistence
+	# include ActiveRecord::Persistence
+end
 
+before do
+	@barbers = Barber.all
 end
 
 get '/' do
-	@barbers = Barber.all
 	erb :index
+end
+
+get '/visit' do
+  erb :visit
+end
+
+post '/visit' do
+  
+  @barber = params[:barber]
+  @client_name = params[:client_name]
+  @client_phone = params[:client_phone]
+  @date_time = params[:date_time]
+  @color = params[:color]
+
+  @client_name.capitalize!
+
+  #name, phone, datestamp, barber, color
+
+  c = Client.new
+  c.name = @client_name
+  c.phone = @client_phone
+  c.datastamp = @date_time
+  c.barber = @barber
+  c.color = @color
+  c.save
+
+
+  
+  erb "<h3>Thank you! You are signed up.</h3>"
+
 end
