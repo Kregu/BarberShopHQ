@@ -52,7 +52,11 @@ post '/visit' do
   c = Client.new params[:client]
   c.save
 
-  
-  erb "<h3>Thank you! You are signed up.</h3>"
+  if c.save
+    erb "<h3>Thank you! You are signed up.</h3>"
+  else
+    @error = c.errors.full_messages.first
+    erb :visit
+  end
 
 end
