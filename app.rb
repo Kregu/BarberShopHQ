@@ -29,10 +29,13 @@ get '/visit' do
   erb :visit
 end
 
-post '/visit' do
-  
-  @c = Client.new params[:client]
+get '/barber/:id' do
+  @barber = Barber.find params[:id]
+  erb :barber
+end
 
+post '/visit' do
+  @c = Client.new params[:client]
 
   if @c.save
     erb "<h3>Thank you! You are signed up.</h3>"
@@ -40,10 +43,7 @@ post '/visit' do
     @error = @c.errors.full_messages.first
     erb :visit
   end
-
 end
 
 
-get '/barber/:id' do
-  erb "This is gonna be barber page, dude!"
-end
+
