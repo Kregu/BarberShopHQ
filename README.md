@@ -10,7 +10,7 @@ Use ActiveRecord gem.
 
     git clone https://github.com/Kregu/BarberShopHQ
 
-    cd BarberShop
+    cd BarberShopHQ
     bundle install             # To install
     rake bd:migrate            # To create tables
 
