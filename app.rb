@@ -38,7 +38,9 @@ get '/bookings' do
   erb :bookings
 end
 
-get '/client/' do
+get '/client/:id' do
+  @client = Client.find params[:id]
+  erb :client
 end
 
 post '/visit' do
